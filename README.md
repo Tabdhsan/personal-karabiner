@@ -1,49 +1,36 @@
-# @mxstbr's Karabiner Elements configuration
+# Personal Karabiner Config
 
-If you like TypeScript and want your Karabiner configuration maintainable & type-safe, you probably want to use the custom configuration DSL / generator I created in `rules.ts` and `utils.ts`!
+TypeScript-based DSL for generating [Karabiner Elements](https://karabiner-elements.pqrs.org/) configuration. Built on top of [@mxstbr's karabiner repo](https://github.com/mxstbr/karabiner), which I discovered through his [Raycast interview](https://www.youtube.com/watch?v=m5MDv9qwhU8).
 
-> “This repo is incredible - thanks so much for putting it together! I always avoided Karabiner mostly because of its complicated configuration. **Your project makes it so much easier to work with and so much more powerful. I'm geeking out on how much faster I'm going to be now.**”
->
-> — @jhanstra ([source](https://github.com/mxstbr/karabiner/pull/4))
+## How It Works
 
-Watch the video about this repo:
+Caps Lock is remapped to a **Hyper Key** (Ctrl+Option+Shift+Cmd). Pressing Hyper + a sublayer key activates a group of shortcuts:
 
-[<img width="772" alt="CleanShot 2024-04-17 at 17 47 16@2x" src="https://github.com/mxstbr/karabiner/assets/7525670/c8565c48-10ad-4479-b690-ddc35d1ca8ce">](https://www.youtube.com/watch?v=j4b_uQX3Vu0)
+| Layer | Key | Commands |
+|-------|-----|----------|
+| **Apps** | `Hyper + O` | `A` Arc, `B` Bitwarden, `F` Finder, `G`/`C` Chrome, `N` Notes, `W` Warp |
+| **Arc Spaces** | `Hyper + A` | `B` BitByteCo, `F` FindYourGroove, `N` Nesha, `C` Lisa |
+| **Window** | `Hyper + W` | `M` Maximize, `B`/`N` Halves, `U`/`I`/`O`/`P` Fourths, `F`/`G`/`H` Thirds |
+| **Telegram** | `Hyper + T` | `C` Claude, `S` Steven, `W` Whitney, `G` Taiyaki, `V` Claude+Image |
+| **Raycast** | `Hyper + R` | `C` VS Code, `.` Emoji, `P` Confetti, `V` Clipboard, `N` Notion |
 
-Watch my interview with Raycast for a deeper dive into how I connect this with Raycast as my personal productivity system:
+### Double-Tap Shortcuts
 
-[![](https://github.com/mxstbr/karabiner/assets/7525670/f974cee3-ac92-4f80-8bf7-9efdf81f78b5)](https://www.youtube.com/watch?v=m5MDv9qwhU8)
+| Shortcut | Action |
+|----------|--------|
+| Left Ctrl × 2 | Msg Claude (text) |
+| Left Cmd × 2 | Msg Claude (with clipboard image) |
 
-You probably don't want to use my exact configuration, as it's optimized for my personal style & usage. Best way to go about using this if you want to? Probably delete all the sublayers in `rules.ts` and add your own based on your own needs!
+## Setup
 
-## Installation
-
-1. Install & start [Karabiner Elements](https://karabiner-elements.pqrs.org/)
-1. Clone this repository
-1. Delete the default `~/.config/karabiner` folder
-1. Create a symlink with `ln -s ~/github/mxstbr/karabiner ~/.config` (where `~/github/mxstbr/karabiner` is your local path to where you cloned the repository)
-1. [Restart karabiner_console_user_server](https://karabiner-elements.pqrs.org/docs/manual/misc/configuration-file-path/) with `` launchctl kickstart -k gui/`id -u`/org.pqrs.karabiner.karabiner_console_user_server ``
-
-## Development
-
-```
+```bash
 yarn install
+yarn run build    # compile rules.ts → karabiner.json
+yarn run watch    # rebuild on file changes
 ```
 
-to install the dependencies. (one-time only)
+The generated `karabiner.json` should be symlinked to `~/.config/karabiner/karabiner.json`.
 
-```
-yarn run build
-```
+## Credits
 
-builds the `karabiner.json` from the `rules.ts`.
-
-```
-yarn run watch
-```
-
-watches the TypeScript files and rebuilds whenever they change.
-
-## License
-
-Copyright (c) 2022 Maximilian Stoiber, licensed under the [MIT license](./LICENSE.md).
+Forked from [@mxstbr/karabiner](https://github.com/mxstbr/karabiner) — the TypeScript DSL, Hyper key concept, and sublayer architecture are all his work. Highly recommend watching his [deep dive with Raycast](https://www.youtube.com/watch?v=m5MDv9qwhU8) for context on how this fits into a productivity workflow.
