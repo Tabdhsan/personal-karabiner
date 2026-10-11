@@ -165,6 +165,9 @@ const rules: KarabinerRules[] = [
       g: window("center-third"),
       h: window("last-third"),
 
+      // Equal columns for every window on the screen (raycast-scripts/equalize.sh)
+      e: open("raycast://script-commands/equalize"),
+
 
 
       //   o: window("next-display"),

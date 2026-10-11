@@ -10,7 +10,7 @@ Caps Lock is remapped to a **Hyper Key** (Ctrl+Option+Shift+Cmd). Pressing Hyper
 |-------|-----|----------|
 | **Apps** | `Hyper + O` | `A` Arc, `B` Bitwarden, `F` Finder, `G`/`C` Chrome, `N` Notes, `W` Warp |
 | **Arc Spaces** | `Hyper + A` | `B` BitByteCo, `F` FindYourGroove, `N` Nesha, `C` Lisa |
-| **Window** | `Hyper + W` | `M` Maximize, `B`/`N` Halves, `U`/`I`/`O`/`P` Fourths, `F`/`G`/`H` Thirds |
+| **Window** | `Hyper + W` | `M` Maximize, `E` Equalize, `B`/`N` Halves, `U`/`I`/`O`/`P` Fourths, `F`/`G`/`H` Thirds |
 | **Telegram** | `Hyper + T` | `C` Claude, `S` Steven, `W` Whitney, `G` Taiyaki, `V` Claude+Image |
 | **Raycast** | `Hyper + R` | `C` VS Code, `.` Emoji, `P` Confetti, `V` Clipboard, `N` Notion |
 
